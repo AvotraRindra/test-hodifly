@@ -18,6 +18,7 @@ export default function App() {
 
   return (
     <main className="card">
+      <h1>Salut!!</h1>
       <h1>Test Hodifly 🚀</h1>
       {error ? <p className="error">{error}</p> :
        user ? <h2>Bonjour {user.nom} 👋</h2> :
