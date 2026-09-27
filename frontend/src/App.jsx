@@ -6,7 +6,7 @@ export default function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const api = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const api = import.meta.env.VITE_API_URL || "";
     fetch(`${api}/api/user`)
       .then((res) => {
         if (!res.ok) throw new Error("Erreur API");
