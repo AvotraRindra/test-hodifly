@@ -1,4 +1,14 @@
 require("dotenv").config();
+
+console.log("ENV CHECK:", {
+  DB_HOST: process.env.DB_HOST,
+  DB_PORT: process.env.DB_PORT,
+  DB_NAME: process.env.DB_NAME,
+  DB_USER: process.env.DB_USER,
+  DB_PASSWORD_PRESENT: Boolean(process.env.DB_PASSWORD),
+  DB_PASSWORD_LENGTH: process.env.DB_PASSWORD?.length,
+});
+
 const express = require("express");
 const cors = require("cors");
 const db = require("./db");
