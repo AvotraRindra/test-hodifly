@@ -12,11 +12,17 @@ app.get("/", (req, res) => res.send("API Hodifly OK"));
 app.get("/api/user", async (req, res) => {
   try {
     const [rows] = await db.query("SELECT id, nom FROM utilisateurs LIMIT 1");
-    if (!rows.length) return res.status(404).json({ erreur: "Aucun utilisateur" });
+    if (!rows.length)
+      return res.status(404).json({ erreur: "Aucun utilisateur" });
     res.json(rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ erreur: "Erreur base de données" });
+    console.error("ERREUR MYSQL :", err);
+
+    res.status(500).json({
+      erreur: "Erreur base de données",
+      code: err.code,
+      message: err.message,
+    });
   }
 });
 
